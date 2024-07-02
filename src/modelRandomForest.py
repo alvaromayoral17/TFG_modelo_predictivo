@@ -45,7 +45,7 @@ print(f"R^2 Score: {r2}")
 # Predicción para las 53 semanas del año 2014
 all_data = dataframe.drop(columns=["año 2014"])
 full_prediction = modelo.predict(all_data)
-print(full_prediction)
+
 
 
 # Graficamos los datos reales y predichos
