@@ -25,7 +25,7 @@ El cuadro de mando proporciona visualizaciones y KPIs clave para diferentes role
 
 2. Navegar al directorio del proyecto:
     ```bash
-    cd TFG_modelo_predictivo
+    cd TFG_predict
     ```
 
 3. Crear un entorno virtual:
@@ -45,7 +45,12 @@ El cuadro de mando proporciona visualizaciones y KPIs clave para diferentes role
 
 5. Instalar las dependencias:
     ```bash
-    pip install -r requirements.txt
+    pip install pandas
+    pip install numpy
+    pip install scikit-learn
+    pip install matplotlib
+    pip install tensorflow
+    
     ```
 
 ## Uso
@@ -54,25 +59,25 @@ El cuadro de mando proporciona visualizaciones y KPIs clave para diferentes role
 
 1. Navegar al directorio del modelo predictivo:
     ```bash
-    cd src/modeloLR.py
-    cd src/modelRFR.py
+    cd src/modelLinearRegresion.py
+    cd src/modelNeuralNetwork.py
+    cd src/modelRandomForest.py
     ```
 
 2. Ejecutar el script de entrenamiento del modelo:
     ```bash
-    python modeloLR.py
-    python modeloRFR.py
+    python modelLinearRegresion.py
+    python modelNeuralNetwork.py
+    python modelRandomForest.py
     ```
 
 ## Estructura del Código
 
-- `main.py`: Archivo principal para ejecutar el proyecto.
-- `dashboard/`: Archivos relacionados con el cuadro de mando.
-- `predictive_model/`: Archivos relacionados con el modelo predictivo.
-    - `train_model.py`: Script para entrenar el modelo predictivo.
-    - `predict.py`: Script para realizar predicciones utilizando el modelo entrenado.
-- `data/`: Conjuntos de datos utilizados en el proyecto.
-- `notebooks/`: Jupyter notebooks para exploración de datos y desarrollo del modelo.
+- `data/`: Archivo relacionado con el conjunto de datos
+- `src/`: Archivos relacionados con el modelo predictivo.
+    - `modelLinearRegresion.py`: Script para entrenar el modelo predictivo con algoritmo Regresion Lineal.
+    - `modelNeuralNetwork.py`: Script para entrenar el modelo predictivo con algoritmo Redes Neuronales.
+    -  `modelRandomForest.py`: Script para entrenar el modelo predictivo con algoritmo Random Forest Regression.
 
 ## Contribuir
 
@@ -84,9 +89,9 @@ Para contribuir a este proyecto, por favor sigue estos pasos:
 
 ## Autor
 
-- [Tu Nombre](mailto:tu_email@example.com)
+- [alvaromayoral17](mailto:a.mayoral5@usp.ceu.es)
 
 ## Licencia
 
-Este proyecto está bajo Licencia.
+Este proyecto está bajo Licencia CEU USP.
 
