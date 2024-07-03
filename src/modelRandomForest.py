@@ -18,37 +18,29 @@ print(dataframe.dtypes)
 print(dataframe)
 #Establecemos la opcion para adoptar el comportamiento futuro
 pd.set_option('future.no_silent_downcasting', True)
-
-
-
 #Asignamos las variables independientes a X y la variable dependiente a Y
 #x = dataframe.drop("Sales", axis=1)
 #y = dataframe["Sales"]
 dataframe = dataframe.dropna()
-
+# Construimos el modelo de Random Forest
 train_data = dataframe.sample(frac=0.75, random_state=0)
 test_data = dataframe.drop(train_data.index)
-
 train_label = train_data.pop("año 2014")
 test_label = test_data.pop("año 2014")
 modelo = RandomForestRegressor(random_state=0)
-
+#Entrenamos el modelo y realizamos las predicciones
 modelo.fit(train_data, train_label)
 prediction = modelo.predict(test_data)
-
-#Evaluacion del modelo
+#Evaluamos el modelo
 mape = mean_absolute_percentage_error(y_true=test_label, y_pred=prediction)
 r2 = r2_score(y_true=test_label, y_pred=prediction)
 print(f"MAPE: {mape * 100:.2f}%")
 print(f"R^2 Score: {r2}")
-
 # Predicción para las 53 semanas del año 2014
 all_data = dataframe.drop(columns=["año 2014"])
 full_prediction = modelo.predict(all_data)
 
-
-
-# Graficamos los datos reales y predichos
+# Realizamos graficas de los datos reales y predichos
 plt.figure(figsize=(12, 6))
 plt.plot(dataframe.index, dataframe["año 2011"], label="Ventas Año 2011", color= "red", marker="x")
 plt.plot(dataframe.index, dataframe["año2012"], label="Ventas Año 2012", color= "blue", marker="o")

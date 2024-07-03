@@ -19,45 +19,36 @@ print(dataframe)
 
 # Establecemos la opcion para adoptar el comportamiento futuro
 pd.set_option('future.no_silent_downcasting', True)
-
-# Eliminar filas con valores NaN
+# Eliminamos filas con valores NaN
 dataframe = dataframe.dropna()
-
-# Dividir los datos en conjuntos de entrenamiento y prueba
+# Se dividen los datos en conjuntos de entrenamiento y prueba
 train_data = dataframe.sample(frac=0.75, random_state=0)
 test_data = dataframe.drop(train_data.index)
-
-# Separar la columna objetivo
+# sacamos del modelo la columna sobre la que vamos a realizar la prediccion
 train_label = train_data.pop("año 2014")
 test_label = test_data.pop("año 2014")
 
-# Construir el modelo de redes neuronales
+# Construimos el modelo de redes neuronales
 model = Sequential()
 model.add(Dense(64, input_dim=train_data.shape[1], activation='relu'))
 model.add(Dense(32, activation='relu'))
 model.add(Dense(1))
-
-# Compilar el modelo
+# Compilamos el modelo con el metodo compile
 model.compile(optimizer='adam', loss='mean_squared_error')
-
-# Entrenar el modelo
+# Entrenamos el modelo con el metodo fit
 model.fit(train_data, train_label, epochs=100, batch_size=10, verbose=1)
-
-# Realizar predicciones
+# Realizamos predicciones
 prediction = model.predict(test_data)
-
-# Evaluar el modelo
+# Evaluamos el modelo
 mape = mean_absolute_percentage_error(test_label, prediction)
 r2 = r2_score(test_label, prediction)
 print(f"MAPE: {mape * 100:.2f}%")
 print(f"R^2 Score: {r2}")
-
-# Predicción para las 53 semanas del año 2014
+# Predecimos para las 53 semanas del año 2014
 all_data = dataframe.drop(columns=["año 2014"])
 full_prediction = model.predict(all_data)
 print(full_prediction)
-
-# Graficamos los datos reales y predichos
+# Realizamos graficas de los datos reales y predichos
 plt.figure(figsize=(12, 6))
 plt.plot(dataframe.index, dataframe["año 2011"], label="Ventas Año 2011", color= "red", marker="x")
 plt.plot(dataframe.index, dataframe["año2012"], label="Ventas Año 2012", color= "blue", marker="o")

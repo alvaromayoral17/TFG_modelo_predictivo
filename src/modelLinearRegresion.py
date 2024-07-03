@@ -13,14 +13,8 @@ dataframe["año2012"] = pd.to_numeric(dataframe["año2012"], errors="coerce")
 dataframe["año 2013"] = pd.to_numeric(dataframe["año 2013"], errors="coerce")
 dataframe["año 2014"] = pd.to_numeric(dataframe["año 2014"], errors="coerce")
 #Hacemos un print de el tipo de dato de cada columna y lo mostramos por pantalla
-
-
-
-
 print(dataframe.dtypes)
 print(dataframe)
-
-
 # Eliminamos filas sin valores
 dataframe = dataframe.dropna()
 # Dividimos los datos en entrenamiento (75%) y prueba (25%)
@@ -33,7 +27,7 @@ modelo = LinearRegression()
 modelo.fit(train_data, train_label)
 # Predecimos para los datos de prueba
 prediction = modelo.predict(test_data)
-# Predicción para las 53 semanas del año 2014
+# Predecimos para las 53 semanas del año 2014
 all_data = dataframe.drop(columns=["año 2014"])
 full_prediction = modelo.predict(all_data)
 print(full_prediction)
