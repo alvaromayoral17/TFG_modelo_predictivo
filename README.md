@@ -3,12 +3,13 @@
 ## Descripción
 
 Este proyecto de Trabajo de Fin de Grado (TFG) se centra en el desarrollo de un cuadro de mando interactivo y un modelo predictivo para analizar y predecir datos de ventas.
-El cuadro de mando proporciona visualizaciones y KPIs clave para diferentes roles dentro de la empresa (CEO, CFO, CMO), mientras que el modelo predictivo ayuda a anticipar tendencias y tomar decisiones informadas.
+El cuadro de mando proporciona visualizaciones y KPIs clave para diferentes roles dentro de la empresa (CEO, CLO, CMO), mientras que el modelo predictivo ayuda a anticipar tendencias y tomar decisiones informadas.
 
 ## Contenidos del Proyecto
 
 - `src/`: Código fuente del proyecto.
 - `data/`: Conjuntos de datos utilizados.
+- `CuadroMandoIntegral.pbix`: Archivo referente al Cuadro de Mando.
 
 ## Requisitos Previos
 
@@ -25,7 +26,7 @@ El cuadro de mando proporciona visualizaciones y KPIs clave para diferentes role
 
 2. Navegar al directorio del proyecto:
     ```bash
-    cd TFG_predict
+    cd TFG_predict/
     ```
 
 3. Crear un entorno virtual:
@@ -54,6 +55,10 @@ El cuadro de mando proporciona visualizaciones y KPIs clave para diferentes role
     ```
 
 ## Uso
+
+### Visualizar el Cuadro de Mando Integral
+
+Para la visualización del cuadro de mando se debe descargar localmente el archivo y requiere tener instalado Power BI Desktop.
 
 ### Ejecutar el Modelo Predictivo
 
