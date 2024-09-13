@@ -18,9 +18,7 @@ print(dataframe.dtypes)
 print(dataframe)
 #Establecemos la opcion para adoptar el comportamiento futuro
 pd.set_option('future.no_silent_downcasting', True)
-#Asignamos las variables independientes a X y la variable dependiente a Y
-#x = dataframe.drop("Sales", axis=1)
-#y = dataframe["Sales"]
+
 dataframe = dataframe.dropna()
 # Construimos el modelo de Random Forest
 train_data = dataframe.sample(frac=0.75, random_state=0)
